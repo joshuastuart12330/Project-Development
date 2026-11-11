@@ -381,10 +381,6 @@ namespace AssetTrackingPrototype {
             
             private global::System.Data.DataColumn columnEmployeeID;
             
-            private global::System.Data.DataColumn columnCreatedAt;
-            
-            private global::System.Data.DataColumn columnUpdatedAt;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public AssetsDataTable() {
@@ -492,22 +488,6 @@ namespace AssetTrackingPrototype {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public global::System.Data.DataColumn CreatedAtColumn {
-                get {
-                    return this.columnCreatedAt;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public global::System.Data.DataColumn UpdatedAtColumn {
-                get {
-                    return this.columnUpdatedAt;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -543,7 +523,7 @@ namespace AssetTrackingPrototype {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public AssetsRow AddAssetsRow(string SystemName, string Model, string Manufacturer, string AssetType, string IPAddress, System.DateTime PurchaseDate, string Notes, EmployeesRow parentEmployeesRowByFK_Assets_Employees, System.DateTime CreatedAt, System.DateTime UpdatedAt) {
+            public AssetsRow AddAssetsRow(string SystemName, string Model, string Manufacturer, string AssetType, string IPAddress, System.DateTime PurchaseDate, string Notes, EmployeesRow parentEmployeesRowByFK_Assets_Employees) {
                 AssetsRow rowAssetsRow = ((AssetsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -554,9 +534,7 @@ namespace AssetTrackingPrototype {
                         IPAddress,
                         PurchaseDate,
                         Notes,
-                        null,
-                        CreatedAt,
-                        UpdatedAt};
+                        null};
                 if ((parentEmployeesRowByFK_Assets_Employees != null)) {
                     columnValuesArray[8] = parentEmployeesRowByFK_Assets_Employees[0];
                 }
@@ -598,8 +576,6 @@ namespace AssetTrackingPrototype {
                 this.columnPurchaseDate = base.Columns["PurchaseDate"];
                 this.columnNotes = base.Columns["Notes"];
                 this.columnEmployeeID = base.Columns["EmployeeID"];
-                this.columnCreatedAt = base.Columns["CreatedAt"];
-                this.columnUpdatedAt = base.Columns["UpdatedAt"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -623,10 +599,6 @@ namespace AssetTrackingPrototype {
                 base.Columns.Add(this.columnNotes);
                 this.columnEmployeeID = new global::System.Data.DataColumn("EmployeeID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEmployeeID);
-                this.columnCreatedAt = new global::System.Data.DataColumn("CreatedAt", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCreatedAt);
-                this.columnUpdatedAt = new global::System.Data.DataColumn("UpdatedAt", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUpdatedAt);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnAssetID}, true));
                 this.columnAssetID.AutoIncrement = true;
@@ -644,8 +616,6 @@ namespace AssetTrackingPrototype {
                 this.columnIPAddress.MaxLength = 45;
                 this.columnNotes.MaxLength = 2147483647;
                 this.columnEmployeeID.AllowDBNull = false;
-                this.columnCreatedAt.AllowDBNull = false;
-                this.columnUpdatedAt.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1518,28 +1488,6 @@ namespace AssetTrackingPrototype {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public System.DateTime CreatedAt {
-                get {
-                    return ((global::System.DateTime)(this[this.tableAssets.CreatedAtColumn]));
-                }
-                set {
-                    this[this.tableAssets.CreatedAtColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public System.DateTime UpdatedAt {
-                get {
-                    return ((global::System.DateTime)(this[this.tableAssets.UpdatedAtColumn]));
-                }
-                set {
-                    this[this.tableAssets.UpdatedAtColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public EmployeesRow EmployeesRow {
                 get {
                     return ((EmployeesRow)(this.GetParentRow(this.Table.ParentRelations["FK_Assets_Employees"])));
@@ -1986,12 +1934,10 @@ namespace AssetTrackingPrototype.mssql2500520DataSetTableAdapters {
             tableMapping.ColumnMappings.Add("PurchaseDate", "PurchaseDate");
             tableMapping.ColumnMappings.Add("Notes", "Notes");
             tableMapping.ColumnMappings.Add("EmployeeID", "EmployeeID");
-            tableMapping.ColumnMappings.Add("CreatedAt", "CreatedAt");
-            tableMapping.ColumnMappings.Add("UpdatedAt", "UpdatedAt");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Assets] WHERE (([AssetID] = @Original_AssetID) AND ([SystemName] = @Original_SystemName) AND ((@IsNull_Model = 1 AND [Model] IS NULL) OR ([Model] = @Original_Model)) AND ((@IsNull_Manufacturer = 1 AND [Manufacturer] IS NULL) OR ([Manufacturer] = @Original_Manufacturer)) AND ([AssetType] = @Original_AssetType) AND ((@IsNull_IPAddress = 1 AND [IPAddress] IS NULL) OR ([IPAddress] = @Original_IPAddress)) AND ((@IsNull_PurchaseDate = 1 AND [PurchaseDate] IS NULL) OR ([PurchaseDate] = @Original_PurchaseDate)) AND ([EmployeeID] = @Original_EmployeeID) AND ([CreatedAt] = @Original_CreatedAt) AND ([UpdatedAt] = @Original_UpdatedAt))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Assets] WHERE (([AssetID] = @Original_AssetID) AND ([SystemName] = @Original_SystemName) AND ((@IsNull_Model = 1 AND [Model] IS NULL) OR ([Model] = @Original_Model)) AND ((@IsNull_Manufacturer = 1 AND [Manufacturer] IS NULL) OR ([Manufacturer] = @Original_Manufacturer)) AND ([AssetType] = @Original_AssetType) AND ((@IsNull_IPAddress = 1 AND [IPAddress] IS NULL) OR ([IPAddress] = @Original_IPAddress)) AND ((@IsNull_PurchaseDate = 1 AND [PurchaseDate] IS NULL) OR ([PurchaseDate] = @Original_PurchaseDate)) AND ([EmployeeID] = @Original_EmployeeID))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AssetID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AssetID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SystemName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SystemName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -2005,12 +1951,10 @@ namespace AssetTrackingPrototype.mssql2500520DataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PurchaseDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PurchaseDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EmployeeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmployeeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CreatedAt", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreatedAt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UpdatedAt", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdatedAt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Assets] ([SystemName], [Model], [Manufacturer], [AssetType], [IPAddress], [PurchaseDate], [Notes], [EmployeeID], [CreatedAt], [UpdatedAt]) VALUES (@SystemName, @Model, @Manufacturer, @AssetType, @IPAddress, @PurchaseDate, @Notes, @EmployeeID, @CreatedAt, @UpdatedAt);
-SELECT AssetID, SystemName, Model, Manufacturer, AssetType, IPAddress, PurchaseDate, Notes, EmployeeID, CreatedAt, UpdatedAt FROM Assets WHERE (AssetID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Assets] ([SystemName], [Model], [Manufacturer], [AssetType], [IPAddress], [PurchaseDate], [Notes], [EmployeeID]) VALUES (@SystemName, @Model, @Manufacturer, @AssetType, @IPAddress, @PurchaseDate, @Notes, @EmployeeID);
+SELECT AssetID, SystemName, Model, Manufacturer, AssetType, IPAddress, PurchaseDate, Notes, EmployeeID FROM Assets WHERE (AssetID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SystemName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SystemName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Model", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Model", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2020,12 +1964,10 @@ SELECT AssetID, SystemName, Model, Manufacturer, AssetType, IPAddress, PurchaseD
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PurchaseDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Notes", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Notes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EmployeeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmployeeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreatedAt", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreatedAt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpdatedAt", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdatedAt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Assets] SET [SystemName] = @SystemName, [Model] = @Model, [Manufacturer] = @Manufacturer, [AssetType] = @AssetType, [IPAddress] = @IPAddress, [PurchaseDate] = @PurchaseDate, [Notes] = @Notes, [EmployeeID] = @EmployeeID, [CreatedAt] = @CreatedAt, [UpdatedAt] = @UpdatedAt WHERE (([AssetID] = @Original_AssetID) AND ([SystemName] = @Original_SystemName) AND ((@IsNull_Model = 1 AND [Model] IS NULL) OR ([Model] = @Original_Model)) AND ((@IsNull_Manufacturer = 1 AND [Manufacturer] IS NULL) OR ([Manufacturer] = @Original_Manufacturer)) AND ([AssetType] = @Original_AssetType) AND ((@IsNull_IPAddress = 1 AND [IPAddress] IS NULL) OR ([IPAddress] = @Original_IPAddress)) AND ((@IsNull_PurchaseDate = 1 AND [PurchaseDate] IS NULL) OR ([PurchaseDate] = @Original_PurchaseDate)) AND ([EmployeeID] = @Original_EmployeeID) AND ([CreatedAt] = @Original_CreatedAt) AND ([UpdatedAt] = @Original_UpdatedAt));
-SELECT AssetID, SystemName, Model, Manufacturer, AssetType, IPAddress, PurchaseDate, Notes, EmployeeID, CreatedAt, UpdatedAt FROM Assets WHERE (AssetID = @AssetID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Assets] SET [SystemName] = @SystemName, [Model] = @Model, [Manufacturer] = @Manufacturer, [AssetType] = @AssetType, [IPAddress] = @IPAddress, [PurchaseDate] = @PurchaseDate, [Notes] = @Notes, [EmployeeID] = @EmployeeID WHERE (([AssetID] = @Original_AssetID) AND ([SystemName] = @Original_SystemName) AND ((@IsNull_Model = 1 AND [Model] IS NULL) OR ([Model] = @Original_Model)) AND ((@IsNull_Manufacturer = 1 AND [Manufacturer] IS NULL) OR ([Manufacturer] = @Original_Manufacturer)) AND ([AssetType] = @Original_AssetType) AND ((@IsNull_IPAddress = 1 AND [IPAddress] IS NULL) OR ([IPAddress] = @Original_IPAddress)) AND ((@IsNull_PurchaseDate = 1 AND [PurchaseDate] IS NULL) OR ([PurchaseDate] = @Original_PurchaseDate)) AND ([EmployeeID] = @Original_EmployeeID));
+SELECT AssetID, SystemName, Model, Manufacturer, AssetType, IPAddress, PurchaseDate, Notes, EmployeeID FROM Assets WHERE (AssetID = @AssetID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SystemName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SystemName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Model", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Model", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2035,8 +1977,6 @@ SELECT AssetID, SystemName, Model, Manufacturer, AssetType, IPAddress, PurchaseD
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PurchaseDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Notes", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Notes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EmployeeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmployeeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreatedAt", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreatedAt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpdatedAt", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdatedAt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AssetID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AssetID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SystemName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SystemName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Model", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Model", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -2049,8 +1989,6 @@ SELECT AssetID, SystemName, Model, Manufacturer, AssetType, IPAddress, PurchaseD
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PurchaseDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PurchaseDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EmployeeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmployeeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CreatedAt", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreatedAt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UpdatedAt", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdatedAt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AssetID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "AssetID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -2068,7 +2006,7 @@ SELECT AssetID, SystemName, Model, Manufacturer, AssetType, IPAddress, PurchaseD
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT AssetID, SystemName, Model, Manufacturer, AssetType, IPAddress, PurchaseDa" +
-                "te, Notes, EmployeeID, CreatedAt, UpdatedAt FROM dbo.Assets";
+                "te, Notes, EmployeeID FROM Assets";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2129,7 +2067,7 @@ SELECT AssetID, SystemName, Model, Manufacturer, AssetType, IPAddress, PurchaseD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_AssetID, string Original_SystemName, string Original_Model, string Original_Manufacturer, string Original_AssetType, string Original_IPAddress, global::System.Nullable<global::System.DateTime> Original_PurchaseDate, int Original_EmployeeID, System.DateTime Original_CreatedAt, System.DateTime Original_UpdatedAt) {
+        public virtual int Delete(int Original_AssetID, string Original_SystemName, string Original_Model, string Original_Manufacturer, string Original_AssetType, string Original_IPAddress, global::System.Nullable<global::System.DateTime> Original_PurchaseDate, int Original_EmployeeID) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_AssetID));
             if ((Original_SystemName == null)) {
                 throw new global::System.ArgumentNullException("Original_SystemName");
@@ -2176,8 +2114,6 @@ SELECT AssetID, SystemName, Model, Manufacturer, AssetType, IPAddress, PurchaseD
                 this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             this.Adapter.DeleteCommand.Parameters[11].Value = ((int)(Original_EmployeeID));
-            this.Adapter.DeleteCommand.Parameters[12].Value = ((System.DateTime)(Original_CreatedAt));
-            this.Adapter.DeleteCommand.Parameters[13].Value = ((System.DateTime)(Original_UpdatedAt));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2198,7 +2134,7 @@ SELECT AssetID, SystemName, Model, Manufacturer, AssetType, IPAddress, PurchaseD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string SystemName, string Model, string Manufacturer, string AssetType, string IPAddress, global::System.Nullable<global::System.DateTime> PurchaseDate, string Notes, int EmployeeID, System.DateTime CreatedAt, System.DateTime UpdatedAt) {
+        public virtual int Insert(string SystemName, string Model, string Manufacturer, string AssetType, string IPAddress, global::System.Nullable<global::System.DateTime> PurchaseDate, string Notes, int EmployeeID) {
             if ((SystemName == null)) {
                 throw new global::System.ArgumentNullException("SystemName");
             }
@@ -2242,8 +2178,6 @@ SELECT AssetID, SystemName, Model, Manufacturer, AssetType, IPAddress, PurchaseD
                 this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Notes));
             }
             this.Adapter.InsertCommand.Parameters[7].Value = ((int)(EmployeeID));
-            this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(CreatedAt));
-            this.Adapter.InsertCommand.Parameters[9].Value = ((System.DateTime)(UpdatedAt));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2273,8 +2207,6 @@ SELECT AssetID, SystemName, Model, Manufacturer, AssetType, IPAddress, PurchaseD
                     global::System.Nullable<global::System.DateTime> PurchaseDate, 
                     string Notes, 
                     int EmployeeID, 
-                    System.DateTime CreatedAt, 
-                    System.DateTime UpdatedAt, 
                     int Original_AssetID, 
                     string Original_SystemName, 
                     string Original_Model, 
@@ -2283,8 +2215,6 @@ SELECT AssetID, SystemName, Model, Manufacturer, AssetType, IPAddress, PurchaseD
                     string Original_IPAddress, 
                     global::System.Nullable<global::System.DateTime> Original_PurchaseDate, 
                     int Original_EmployeeID, 
-                    System.DateTime Original_CreatedAt, 
-                    System.DateTime Original_UpdatedAt, 
                     int AssetID) {
             if ((SystemName == null)) {
                 throw new global::System.ArgumentNullException("SystemName");
@@ -2329,57 +2259,53 @@ SELECT AssetID, SystemName, Model, Manufacturer, AssetType, IPAddress, PurchaseD
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Notes));
             }
             this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(EmployeeID));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(CreatedAt));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(UpdatedAt));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_AssetID));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_AssetID));
             if ((Original_SystemName == null)) {
                 throw new global::System.ArgumentNullException("Original_SystemName");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_SystemName));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_SystemName));
             }
             if ((Original_Model == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Model));
+            }
+            if ((Original_Manufacturer == null)) {
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Model));
-            }
-            if ((Original_Manufacturer == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Manufacturer));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Manufacturer));
             }
             if ((Original_AssetType == null)) {
                 throw new global::System.ArgumentNullException("Original_AssetType");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_AssetType));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_AssetType));
             }
             if ((Original_IPAddress == null)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_IPAddress));
+            }
+            if ((Original_PurchaseDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(Original_PurchaseDate.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_IPAddress));
-            }
-            if ((Original_PurchaseDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((System.DateTime)(Original_PurchaseDate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_EmployeeID));
-            this.Adapter.UpdateCommand.Parameters[22].Value = ((System.DateTime)(Original_CreatedAt));
-            this.Adapter.UpdateCommand.Parameters[23].Value = ((System.DateTime)(Original_UpdatedAt));
-            this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(AssetID));
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_EmployeeID));
+            this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(AssetID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2409,8 +2335,6 @@ SELECT AssetID, SystemName, Model, Manufacturer, AssetType, IPAddress, PurchaseD
                     global::System.Nullable<global::System.DateTime> PurchaseDate, 
                     string Notes, 
                     int EmployeeID, 
-                    System.DateTime CreatedAt, 
-                    System.DateTime UpdatedAt, 
                     int Original_AssetID, 
                     string Original_SystemName, 
                     string Original_Model, 
@@ -2418,10 +2342,8 @@ SELECT AssetID, SystemName, Model, Manufacturer, AssetType, IPAddress, PurchaseD
                     string Original_AssetType, 
                     string Original_IPAddress, 
                     global::System.Nullable<global::System.DateTime> Original_PurchaseDate, 
-                    int Original_EmployeeID, 
-                    System.DateTime Original_CreatedAt, 
-                    System.DateTime Original_UpdatedAt) {
-            return this.Update(SystemName, Model, Manufacturer, AssetType, IPAddress, PurchaseDate, Notes, EmployeeID, CreatedAt, UpdatedAt, Original_AssetID, Original_SystemName, Original_Model, Original_Manufacturer, Original_AssetType, Original_IPAddress, Original_PurchaseDate, Original_EmployeeID, Original_CreatedAt, Original_UpdatedAt, Original_AssetID);
+                    int Original_EmployeeID) {
+            return this.Update(SystemName, Model, Manufacturer, AssetType, IPAddress, PurchaseDate, Notes, EmployeeID, Original_AssetID, Original_SystemName, Original_Model, Original_Manufacturer, Original_AssetType, Original_IPAddress, Original_PurchaseDate, Original_EmployeeID, Original_AssetID);
         }
     }
     

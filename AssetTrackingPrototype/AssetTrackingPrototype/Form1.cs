@@ -1,17 +1,18 @@
-﻿using System;
+﻿using AssetTrackingPrototype.mssql2500520DataSetTableAdapters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
+using System.Management;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Data.SqlTypes;
-using System.Management;
-using System.Net;
-using System.Configuration;
 
 namespace AssetTrackingPrototype
 {
@@ -24,7 +25,7 @@ namespace AssetTrackingPrototype
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            GetNextEntryNumber();
+
         }
 
         private string GetAssetType(ushort[] chassisTypes)
@@ -66,18 +67,55 @@ namespace AssetTrackingPrototype
             return "Unknown";
         }
 
-        //reads how many assets there are and generates a unique id based on it.
-        private void GetNextEntryNumber()
+        private void AddAsset()
         {
-            mssql2500520DataSet myDB = new mssql2500520DataSet();
-            mssql2500520DataSetTableAdapters.EmployeesTableAdapter adapter =
-                new mssql2500520DataSetTableAdapters.EmployeesTableAdapter();
+            try
+            {
+                mssql2500520DataSet myDB = new mssql2500520DataSet();
+                mssql2500520DataSetTableAdapters.AssetsTableAdapter assetTableAdapter = new mssql2500520DataSetTableAdapters.AssetsTableAdapter();
 
-            mssql2500520DataSet.EmployeesDataTable table = adapter.GetData();
+                mssql2500520DataSet.AssetsRow newRow = myDB.Assets.NewAssetsRow();
 
-            int nextNumber = table.Rows.Count + 1;
+                // Read values from the form
+                newRow.SystemName = txtSystemName.Text.Trim();
 
-            txtID.Text = nextNumber.ToString();
+                newRow.Model = txtModel.Text.Trim();
+
+                newRow.Manufacturer = txtManufacturer.Text.Trim();
+
+                newRow.AssetType = txtAssetType.Text.Trim();
+
+                newRow.IPAddress = txtIPAddress.Text.Trim();
+
+                newRow.PurchaseDate = dateTimePicker1.Value.Date;
+
+                newRow.Notes = txtComment.Text.Trim();
+
+                newRow.EmployeeID = Convert.ToInt32(txtEmpID.Text);
+
+                // Add the new row to the DataTable
+                myDB.Assets.AddAssetsRow(newRow);
+
+                // Save changes to the database
+                assetTableAdapter.Update(myDB.Assets);
+
+                MessageBox.Show(
+                    "Asset successfully added!",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error adding asset: " + ex.Message,
+                    "Database Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -139,6 +177,10 @@ namespace AssetTrackingPrototype
             }
 
         }
-        
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AddAsset();
+        }
     }
 }

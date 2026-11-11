@@ -24,7 +24,7 @@ namespace AssetTrackingPrototype
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            GetNextEntryNumber();
         }
 
         private string GetAssetType(ushort[] chassisTypes)
@@ -66,6 +66,19 @@ namespace AssetTrackingPrototype
             return "Unknown";
         }
 
+        //reads how many assets there are and generates a unique id based on it.
+        private void GetNextEntryNumber()
+        {
+            mssql2500520DataSet myDB = new mssql2500520DataSet();
+            mssql2500520DataSetTableAdapters.EmployeesTableAdapter adapter =
+                new mssql2500520DataSetTableAdapters.EmployeesTableAdapter();
+
+            mssql2500520DataSet.EmployeesDataTable table = adapter.GetData();
+
+            int nextNumber = table.Rows.Count + 1;
+
+            txtID.Text = nextNumber.ToString();
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {

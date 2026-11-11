@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\joshu\\Documents\\GitHub\\Project-Development\\AssetTrackingPrototype\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{90D77174-A03C-4FE8-B6DE-B36A103861BB}|AssetTrackingPrototype\\AssetTrackingPrototype.csproj|c:\\users\\joshu\\documents\\github\\project-development\\assettrackingprototype\\assettrackingprototype\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{90D77174-A03C-4FE8-B6DE-B36A103861BB}|AssetTrackingPrototype\\AssetTrackingPrototype.csproj|C:\\Users\\joshu\\Documents\\GitHub\\Project-Development\\AssetTrackingPrototype\\assettrackingprototype\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{90D77174-A03C-4FE8-B6DE-B36A103861BB}|AssetTrackingPrototype\\AssetTrackingPrototype.csproj|solutionrelative:assettrackingprototype\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{90D77174-A03C-4FE8-B6DE-B36A103861BB}|AssetTrackingPrototype\\AssetTrackingPrototype.csproj|c:\\users\\joshu\\documents\\github\\project-development\\assettrackingprototype\\assettrackingprototype\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{90D77174-A03C-4FE8-B6DE-B36A103861BB}|AssetTrackingPrototype\\AssetTrackingPrototype.csproj|C:\\Users\\joshu\\Documents\\GitHub\\Project-Development\\AssetTrackingPrototype\\assettrackingprototype\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{90D77174-A03C-4FE8-B6DE-B36A103861BB}|AssetTrackingPrototype\\AssetTrackingPrototype.csproj|solutionrelative:assettrackingprototype\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90D77174-A03C-4FE8-B6DE-B36A103861BB}|AssetTrackingPrototype\\AssetTrackingPrototype.csproj|c:\\users\\joshu\\documents\\github\\project-development\\assettrackingprototype\\assettrackingprototype\\mssql2500520dataset.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
+      "RelativeMoniker": "D:0:0:{90D77174-A03C-4FE8-B6DE-B36A103861BB}|AssetTrackingPrototype\\AssetTrackingPrototype.csproj|solutionrelative:assettrackingprototype\\mssql2500520dataset.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,8 +22,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "mssql2500520DataSet.xsd",
+              "DocumentMoniker": "C:\\Users\\joshu\\Documents\\GitHub\\Project-Development\\AssetTrackingPrototype\\AssetTrackingPrototype\\mssql2500520DataSet.xsd",
+              "RelativeDocumentMoniker": "AssetTrackingPrototype\\mssql2500520DataSet.xsd",
+              "ToolTip": "C:\\Users\\joshu\\Documents\\GitHub\\Project-Development\\AssetTrackingPrototype\\AssetTrackingPrototype\\mssql2500520DataSet.xsd",
+              "RelativeToolTip": "AssetTrackingPrototype\\mssql2500520DataSet.xsd",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
+              "WhenOpened": "2026-11-11T00:23:35.944Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -28,7 +45,7 @@
               "RelativeDocumentMoniker": "AssetTrackingPrototype\\Form1.cs",
               "ToolTip": "C:\\Users\\joshu\\Documents\\GitHub\\Project-Development\\AssetTrackingPrototype\\AssetTrackingPrototype\\Form1.cs",
               "RelativeToolTip": "AssetTrackingPrototype\\Form1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAowEMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-10T23:04:46.629Z",
               "EditorCaption": "",
